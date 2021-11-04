@@ -5,11 +5,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit 
+{
+  model:any = {}
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
   }
 
+  login()
+  {
+    console.log(this.model);
+  }
 }
