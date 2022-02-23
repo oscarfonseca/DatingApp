@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from '../_models/user';
 import { AccountService } from '../_services/account.service';
 
 @Component({
@@ -15,6 +17,7 @@ export class NavComponent implements OnInit
 
   ngOnInit(): void 
   {
+    this.getCurrentUser();
   }
 
   login()
@@ -31,6 +34,17 @@ export class NavComponent implements OnInit
 
   logout()
   {
+    this.accountService.logout();
     this.loggedIn = false;
   }
+
+  getCurrentUser(){
+    this.accountService.currentUser$.subscribe(user => {
+      this.loggedIn = !!user;
+    }, error => {
+      console.log(error);
+    })
+  }
+
+
 }
