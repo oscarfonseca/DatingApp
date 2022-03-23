@@ -26,7 +26,10 @@ export class AccountService {
   }
 
   setCurrentUser(user: User) {
-    this.currentUserSource.next(user);
+    if(user === undefined || user.username === undefined)
+      this.currentUserSource.next(undefined);
+    else
+      this.currentUserSource.next(user);
   }
 
   logout() {
