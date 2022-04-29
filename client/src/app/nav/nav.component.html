@@ -15,9 +15,9 @@
       </ng-container>
     </ul>
 
-    <div class="dropdown" dropdown *ngIf="currentUser$ | async">
-      <a class="dropdown-toggle text-light" dropdownToggle>Welcome user</a>
-      <div class="dropdown-menu mt-3" *dropdownMenu="">
+    <div class="dropdown" dropdown *ngIf="(currentUser$ | async) as user">
+      <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{user.username}}</a>
+      <div class="dropdown-menu mt-3" *dropdownMenu>
         <a class="dropdown-item">Edit Profile</a>
 
         <div class="dropdown-divider"></div>
