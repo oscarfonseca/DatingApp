@@ -16,7 +16,7 @@
     </ul>
 
     <div class="dropdown" dropdown *ngIf="(currentUser$ | async) as user">
-      <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{user.username}}</a>
+      <a class="dropdown-toggle text-light" dropdownToggle>Welcome {{user.username | titlecase}}</a>
       <div class="dropdown-menu mt-3" *dropdownMenu>
         <a class="dropdown-item">Edit Profile</a>
 
